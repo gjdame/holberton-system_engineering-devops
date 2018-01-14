@@ -1,2 +1,2 @@
 #!/bin/bash
-uniq -c | sort -r | head -11
+sort| uniq -c | sort -r | head -11
