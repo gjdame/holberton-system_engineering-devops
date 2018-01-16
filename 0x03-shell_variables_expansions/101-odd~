@@ -1,0 +1,3 @@
+#!/bin/bash
+cat -n | cut -c6- | grep -v \t 
+ 

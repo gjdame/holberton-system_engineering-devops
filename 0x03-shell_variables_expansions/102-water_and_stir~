@@ -1,0 +1,2 @@
+#!/bin/bash
+cat -n | rev | tail -1 | rev | tr -d  
