@@ -1,0 +1,12 @@
+#!/usr/bin/env bash
+# This script displays "Holberton School" 10 times, on the 9th says 'hi'
+x="Holberton School"
+while (( i < 10 ))
+do
+    if ((i == 9))
+    then
+	echo "Hi"
+    fi
+    echo "$x"
+    ((i = i + 1))
+done

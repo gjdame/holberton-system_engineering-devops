@@ -1,0 +1,7 @@
+#!/usr/bin/env bash
+#Script displays content of current directory, in a list format
+#Only part of the name after the 1st dash is displayed
+command=$(ls)
+for _ in $command ; do
+    echo "$command" | cut -d '-' -f2
+done
