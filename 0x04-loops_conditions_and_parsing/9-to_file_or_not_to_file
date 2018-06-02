@@ -4,18 +4,18 @@ name="holbertonschool"
 if [ -e "$name" ]
 then
     echo "$name file exists"
+
+    if [ ! -s "$name" ]
+    then
+	echo "$name file is empty"
+    else
+	echo "$name file is not empty"
+    fi
+
+    if [ -f "$name" ]
+    then
+	echo "$name is a regular file"
+    fi
 else
     echo "$name file does not exist"
-fi
-
-if [ ! -s "$name" ]
-then
-    echo "$name file is empty"
-else
-    echo "$name file is not empty"
-fi
-
-if [ -f "$name" ]
-then
-    echo "$name is a regular file"
 fi
