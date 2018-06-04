@@ -1,0 +1,8 @@
+#!/usr/bin/env bash
+#displays a line for an infinite amount of time and pauses 2 seconds after
+trap 'echo "I am invincible!!!"' SIGTERM
+while ((1))
+do
+    echo "To infinity and beyond"
+    sleep 2
+done

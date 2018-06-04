@@ -1,0 +1,4 @@
+#!/usr/bin/env bash
+#list all running processes including those without a tty
+# shellcheck disable=SC2009
+ps -axuf | grep 'bash'

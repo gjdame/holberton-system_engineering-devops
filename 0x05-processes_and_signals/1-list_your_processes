@@ -1,0 +1,3 @@
+#!/usr/bin/env bash
+#list all running processes including those without a tty
+ps -auxf
