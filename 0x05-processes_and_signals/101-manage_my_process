@@ -2,11 +2,10 @@
 #start/stop/restart a process
 if [ "$1" == "start" ]
 then
-    sudo touch /tmp/my_process
-    sudo touch /var/run/my_process.pid
-    echo $$ >> sudo /var/run/my_process.pid
-    echo "manage_my_process started"
     sudo ./manage_my_process &
+    sudo touch /var/run/my_process.pid
+    echo $! > sudo /var/run/my_process.pid
+    echo "manage_my_process started"
 elif [ "$1" == "stop" ]
 then
     echo "manage_my_process stopped"
@@ -15,11 +14,8 @@ then
 elif [ "$1" == "restart" ]
 then
     sudo pkill -f ./manage_my_process
-    sudo rm /var/run/my_process.pid
-    sudo touch /tmp/my_process
-    sudo touch /var/run/my_process.pid
     sudo ./manage_my_process &
-    echo $$ >> suod /var/run/my_process.pid
+    echo $! > sudo /var/run/my_process.pid
     echo "manage_my_process restarted"
 else
     echo "Usage: manage_my_process {start|stop|restart}"
