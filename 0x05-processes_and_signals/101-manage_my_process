@@ -8,8 +8,9 @@ then
     echo "manage_my_process started"
 elif [ "$1" == "stop" ]
 then
-    sudo rm /var/run/my_process.pid
     echo "manage_my_process stopped"
+    sudo pkill -f ./manage_my_process
+    sudo rm /var/run/my_process.pid
 elif [ "$1" == "restart" ]
 then
     sudo rm /var/run/my_process.pid
