@@ -6,6 +6,7 @@ then
     sudo touch /var/run/my_process.pid
     echo $$ >> sudo /var/run/my_process.pid
     echo "manage_my_process started"
+    sudo ./manage_my_process &
 elif [ "$1" == "stop" ]
 then
     echo "manage_my_process stopped"
@@ -17,6 +18,7 @@ then
     sudo rm /var/run/my_process.pid
     sudo touch /tmp/my_process
     sudo touch /var/run/my_process.pid
+    sudo ./manage_my_process &
     echo $$ >> suod /var/run/my_process.pid
     echo "manage_my_process restarted"
 else
