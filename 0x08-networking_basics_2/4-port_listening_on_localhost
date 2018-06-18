@@ -1,0 +1,3 @@
+#!/usr/bin/env bash
+#listen on local host port 98
+sudo nc -lv 98
