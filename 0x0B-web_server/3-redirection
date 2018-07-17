@@ -1,5 +1,7 @@
 #!/usr/bin/env bash
 # Configures Ngninx server so that /redirect_me is redirecting to another page
+sudo apt-get -y install nginx
+
 FILE=/etc/nginx/sites-available/default
 REDIRECT_STRING="location /redirect_me {\n return 301 http://www.google.com;\n}\n"
 
