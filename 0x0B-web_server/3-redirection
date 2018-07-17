@@ -1,11 +1,11 @@
 #!/usr/bin/env bash
 # Configures Ngninx server so that /redirect_me is redirecting to another page
 FILE=/etc/nginx/sites-available/default
+REDIRECT_STRING="location /redirect_me {\n return 301 http://www.google.com;\n}\n"
 
 echo "Holberton School" | sudo tee /usr/share/nginx/html/index.html
 service nginx start
 
-sudo sed -i 's/location \/ {/ location \/redirect_me {/g' $FILE
-sudo sed -i 's/try_files $uri $uri\/ =404;/return 301 http:\/\/www.google.com;/g' $FILE
+sudo sed -i "30i $REDIRECT_STRING" $FILE
 
 sudo service nginx restart
