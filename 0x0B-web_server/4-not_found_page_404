@@ -5,7 +5,7 @@ STRING=" error_page 404 /custom_404.html;\n location = /custom_404.html {\n root
 REDIRECT_STRING="location /redirect_me {\n return 301 http://www.google.com;\n}\n"
 
 echo "Holberton School" | sudo tee /usr/share/nginx/html/index.html
-echo "Ceci n'est pas une page" | sudo tee /usr/share/nginx/html/custm_404.html
+echo "Ceci n'est pas une page" | sudo tee /usr/share/nginx/html/custom_404.html
 
 service nginx start
 
