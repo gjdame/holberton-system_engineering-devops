@@ -1,0 +1,16 @@
+#!/usr/bin/env bash
+# Configures Ngninx server so that creates a custom 404 error page
+FILE=/etc/nginx/sites-available/default
+STRING=" error_page 404 /custom_404.html;\n location = /custom_404.html {\n root /usr/share/nginx/html;\n internal;\n}\n"
+REDIRECT_STRING="location /redirect_me {\n return 301 http://www.google.com;\n}\n"
+
+echo "Holberton School" | sudo tee /usr/share/nginx/html/index.html
+echo "Ceci n'est pas une page" | sudo tee /usr/share/nginx/html/custm_404.html
+
+service nginx start
+
+sudo sed -i "30i $REDIRECT_STRING" $FILE
+
+sudo sed -i "33i$STRING" $FILE
+
+sudo service nginx restart
