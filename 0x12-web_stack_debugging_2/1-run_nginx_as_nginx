@@ -1,0 +1,5 @@
+#!/usr/bin/env bash
+#refigures nginx config file to chagne user to nginx
+FILE=/etc/nginx/nginx.conf
+sudo chmod 644 $FILE
+sudo sed -i "1i user nginx;" $FILE
