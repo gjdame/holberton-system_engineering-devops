@@ -1,9 +1,7 @@
 #!/usr/bin/env bash
 #refigures nginx config file to chagne user to nginx
-FILE=/etc/nginx/nginx.conf
-sudo chmod 644 $FILE
-sudo sed -i "1i user nginx;" $FILE
-sudo sed 's/80/8080' /etc/nginx/sites-enabled/default
-kill -9 "$(pidof apache2)"
-sudo service apache2 stop
-sudo service nginx restart
+sudo chmod 644 /etc/nginx/nginx.conf
+pkill -f apache2
+sudo sed -i "1i user nginx;" /etc/nginx/nginx.conf
+sudo sed -i 's/80/8080/' /etc/nginx/sites-enabled/default
+sudo -u nginx service nginx restart
