@@ -1,0 +1,5 @@
+#!/usr/bin/env bash
+#dump and zip backup of mysql databases
+mysqldump -u root -p"$1" --all-databases > backup.sql
+TIME=$(date +'%d-%m-%y')
+tar -czvf "$TIME".tar.gz backup.sql
