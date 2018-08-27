@@ -5,27 +5,30 @@ gathers information about an employee by ID and returns their TODO progress
 import json
 import os
 import requests
-import sys
 
 def main(argv):
-    emp = requests.get('https://jsonplaceholder.typicode.com/users/{}'.format(sys.argv[1]))
-    name = emp.json().get('username')
+    emp = requests.get('https://jsonplaceholder.typicode.com/users')
     tasks = requests.get('https://jsonplaceholder.typicode.com/todos')
     tasks = tasks.json()
-    res = []
+    users = {}
     final = {}
-    filename = sys.argv[1] + ".json"
+    filename = "todo_all_employees.json"
 
+    for item in emp.json():
+        users[item['id']] = item['username']
 
     with open(filename, 'w+') as f:
-        for task in tasks:
-                if task['userId'] == int(sys.argv[1]):
+        for user in users:
+            res = []
+            for task in tasks:
+                if task['userId'] == int(user):
                     copy = task.copy()
                     del copy['userId']
                     del copy['id']
-                    copy['username'] = name
+                    username = users[user]
+                    copy['username'] = username
                     res.append(copy)
-                final[sys.argv[1]] = res
+            final[user] = res
         json.dump(final, f)
 
 
