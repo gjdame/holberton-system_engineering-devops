@@ -7,6 +7,7 @@ from collections import OrderedDict
 import requests
 import sys
 
+
 def get_users_todo():
 
     emp = requests.get('https://jsonplaceholder.typicode.com/users')
@@ -19,8 +20,9 @@ def get_users_todo():
 
     with open(filename, 'w+') as f:
         for user in users:
-            tasks = requests.get('https://jsonplaceholder.typicode.com/todos?userId={}'
-                 .format(user))
+            tasks = requests.get(
+                'https://jsonplaceholder.typicode.com/todos?userId={}'
+                .format(user))
             tasks = tasks.json()
             res = []
             for task in tasks:
