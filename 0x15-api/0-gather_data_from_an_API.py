@@ -22,7 +22,7 @@ def main(argv):
             total += 1
     print("{} is done with tasks({}/{}):".format(name, complete, total))
     for title in titles:
-        print('\t', end="")
+        print('\t ', end="")
         print(title)
 
 
