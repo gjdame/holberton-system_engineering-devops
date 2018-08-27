@@ -6,7 +6,9 @@ import json
 import os
 import requests
 
+
 def main(argv):
+
     emp = requests.get('https://jsonplaceholder.typicode.com/users')
     tasks = requests.get('https://jsonplaceholder.typicode.com/todos')
     tasks = tasks.json()

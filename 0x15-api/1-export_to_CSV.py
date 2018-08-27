@@ -7,13 +7,16 @@ import os
 import requests
 import sys
 
+
 def main(argv):
-    emp = requests.get('https://jsonplaceholder.typicode.com/users/{}'.format(sys.argv[1]))
+
+    emp = requests.get('https://jsonplaceholder.typicode.com/users/{}'
+                       .format(sys.argv[1]))
     name = emp.json().get('username')
     tasks = requests.get('https://jsonplaceholder.typicode.com/todos')
     tasks = tasks.json()
     complete = 0
-    fieldnames = ["USER_ID","USERNAME","TASK_COMPLETED_STATUS","TASK_TITLE"]
+    fieldnames = ["USER_ID", "USERNAME", "TASK_COMPLETED_STATUS", "TASK_TITLE"]
     titles = []
     total = 0
     filename = sys.argv[1] + ".csv"
@@ -24,6 +27,7 @@ def main(argv):
                 task['name'] = name
                 writer.writerow([task['userId'], task['name'],
                                  task['completed'], task['title']])
+
 
 if __name__ == "__main__":
     import csv

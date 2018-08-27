@@ -7,15 +7,17 @@ import os
 import requests
 import sys
 
+
 def main(argv):
-    emp = requests.get('https://jsonplaceholder.typicode.com/users/{}'.format(sys.argv[1]))
+
+    emp = requests.get('https://jsonplaceholder.typicode.com/users/{}'
+                       .format(sys.argv[1]))
     name = emp.json().get('username')
     tasks = requests.get('https://jsonplaceholder.typicode.com/todos')
     tasks = tasks.json()
     res = []
     final = {}
     filename = sys.argv[1] + ".json"
-
 
     with open(filename, 'w+') as f:
         for task in tasks:
