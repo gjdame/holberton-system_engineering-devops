@@ -2,6 +2,7 @@
 '''
 gathers information about an employee by ID and returns their TODO progress
 '''
+from collections import OrderedDict
 import json
 import os
 import requests
@@ -13,22 +14,21 @@ def main(argv):
     emp = requests.get('https://jsonplaceholder.typicode.com/users/{}'
                        .format(sys.argv[1]))
     name = emp.json().get('username')
-    tasks = requests.get('https://jsonplaceholder.typicode.com/todos')
+    tasks = requests.get('https://jsonplaceholder.typicode.com/todos?userId={}'.format(sys.argv[1]))
     tasks = tasks.json()
     res = []
-    final = {}
+    final_id = OrderedDict()
     filename = sys.argv[1] + ".json"
 
     with open(filename, 'w+') as f:
         for task in tasks:
-                if task['userId'] == int(sys.argv[1]):
-                    copy = task.copy()
-                    del copy['userId']
-                    del copy['id']
-                    copy['username'] = name
-                    res.append(copy)
-                final[sys.argv[1]] = res
-        json.dump(final, f)
+            final = OrderedDict()
+            final['task'] = task['title']
+            final['completed'] = task['completed']
+            final['username'] = name
+            res.append(final)
+        final_id[sys.argv[1]] = res
+        json.dump(final_id, f)
 
 
 if __name__ == "__main__":
