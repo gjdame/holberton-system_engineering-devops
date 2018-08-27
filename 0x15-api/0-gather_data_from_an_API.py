@@ -6,7 +6,7 @@ import requests
 import sys
 
 
-def main(argv):
+def info():
 
     emp = requests.get('https://jsonplaceholder.typicode.com/users/{}'
                        .format(sys.argv[1]))
@@ -30,5 +30,4 @@ def main(argv):
 
 
 if __name__ == "__main__":
-    import sys
-    main(sys.argv)
+    info()

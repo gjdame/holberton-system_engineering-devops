@@ -7,7 +7,7 @@ from collections import OrderedDict
 import requests
 import sys
 
-def main(argv):
+def get_users_todo():
 
     emp = requests.get('https://jsonplaceholder.typicode.com/users')
     users = {}
@@ -34,6 +34,4 @@ def main(argv):
 
 
 if __name__ == "__main__":
-    import json
-    import sys
-    main(sys.argv)
+    get_users_todo()

@@ -8,8 +8,10 @@ import requests
 import sys
 
 
-def main(argv):
-
+def get_user_todo():
+    '''
+    get user todo
+    '''
     emp = requests.get('https://jsonplaceholder.typicode.com/users/{}'
                        .format(sys.argv[1]))
     name = emp.json().get('username')
@@ -31,6 +33,4 @@ def main(argv):
 
 
 if __name__ == "__main__":
-    import json
-    import sys
-    main(sys.argv)
+    get_user_todo()
