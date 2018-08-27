@@ -2,9 +2,8 @@
 '''
 gathers information about an employee by ID and returns their TODO progress
 '''
-from collections import OrderedDict
 import json
-import os
+from collections import OrderedDict
 import requests
 import sys
 
