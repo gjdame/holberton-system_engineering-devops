@@ -31,7 +31,7 @@ def main(argv):
                 final['completed'] = task['completed']
                 res.append(final)
             final_id[user] = res
-            json.dump(final_id, f)
+        json.dump(final_id, f)
 
 
 if __name__ == "__main__":
