@@ -30,6 +30,5 @@ def main(argv):
 
 
 if __name__ == "__main__":
-    import csv
     import sys
     main(sys.argv)
