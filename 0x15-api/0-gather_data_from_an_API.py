@@ -2,7 +2,6 @@
 '''
 gathers information about an employee by ID and returns their TODO progress
 '''
-import os
 import requests
 import sys
 
