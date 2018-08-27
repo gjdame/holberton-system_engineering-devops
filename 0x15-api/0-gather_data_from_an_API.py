@@ -20,7 +20,7 @@ def main(argv):
                 complete += 1
                 titles.append(task['title'])
             total += 1
-    print("{} is done with tasks({}/{}):".format(name, complete, total))
+    print("Employee {} is done with tasks({}/{}):".format(name, complete, total))
     for title in titles:
         print('\t ', end="")
         print(title)
