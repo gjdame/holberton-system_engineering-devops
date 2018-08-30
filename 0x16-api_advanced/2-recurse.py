@@ -4,6 +4,7 @@ displays top 10 hot posts
 '''
 import requests
 
+
 def recurse(subreddit, hot_list=[], after=None):
     user_agent = {'User-agent': 'greg'}
     sub = requests.get('http://www.reddit.com/r/{}/hot.json?after={}'
