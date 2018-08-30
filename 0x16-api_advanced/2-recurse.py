@@ -16,7 +16,7 @@ def recurse(subreddit, hot_list=[], after=None):
         sub = sub.get('children')
         for obj in sub:
             hot_list.append(obj['data'].get('title'))
-        if after not None:
+        if after is not None:
             recurse(subreddit, hot_list, after)
         return(hot_list)
     except:
