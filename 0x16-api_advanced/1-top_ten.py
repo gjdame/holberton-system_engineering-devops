@@ -10,10 +10,10 @@ def top_ten(subreddit):
     sub = requests.get('http://www.reddit.com/r/{}/hot.json'
                        .format(subreddit), headers=user_agent)
 
-    sub = sub.json().get('data')
-    sub = sub.get('children')
-    i = 0
     try:
+        sub = sub.json().get('data')
+        sub = sub.get('children')
+        i = 0
         for obj in sub:
             if i > 9:
                 break
