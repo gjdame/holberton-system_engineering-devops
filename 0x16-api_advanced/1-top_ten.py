@@ -21,4 +21,4 @@ def top_ten(subreddit):
             i += 1
 
     except:
-        return(None)
+        print('None')
