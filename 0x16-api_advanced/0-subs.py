@@ -10,9 +10,10 @@ def number_of_subscribers(subreddit):
     user_agent = {'User-agent': 'greg'}
     sub = requests.get('http://www.reddit.com/r/{}/about.json'
                        .format(subreddit), headers=user_agent)
-    if not sub:
+    try:
+        sub = sub.json().get('data')
+        for k, v in sub.items():
+            if k == 'subscribers':
+                return(v)
+    except:
         return(0)
-    sub = sub.json().get('data')
-    for k, v in sub.items():
-        if k == 'subscribers':
-            return(v)
