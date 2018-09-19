@@ -9,5 +9,5 @@ setuid ubuntu
 setgid www-data
 
 
-chdir /home/ubuntu/AirBnB_clone_v2/web_flask
-exec gunicorn --workers 3 --bind 0.0.0.0:8001 6-number_odd_or_even:app
+chdir /home/ubuntu/AirBnB_clone_v4
+exec gunicorn --workers 3 --bind 0.0.0.0:8001 wsgi.wsgi_6:web_flask.app
