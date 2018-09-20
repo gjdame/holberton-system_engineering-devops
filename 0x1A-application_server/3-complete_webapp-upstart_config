@@ -15,4 +15,4 @@ env HBNB_TYPE_STORAGE=db
 env HBNB_MYSQL_HOST=localhost
 
 chdir /home/ubuntu/AirBnB_clone_v4
-exec gunicorn --workers 3 --bind 127.0.0.1:8003 -m 007 wsgi.wsgi_hbnb:web_dynamic.app
+exec gunicorn --workers 3 --bind 127.0.0.1:8003 -m 007 web_dynamic.2-hbnb:app
