@@ -14,4 +14,4 @@ setgid www-data
 #env HBNB_TYPE_STORAGE=db
 
 chdir /home/ubuntu/AirBnB_clone_v4
-exec gunicorn --workers 3 --bind 127.0.0.1:8003 -m 007 wsgi.wsgi_api:app.app
+exec gunicorn --workers 3 --bind 127.0.0.1:8002 -m 007 wsgi.wsgi_api:app.app
