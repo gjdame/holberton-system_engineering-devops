@@ -26,6 +26,9 @@ server {
 
 	# Make site accessible from http://localhost/
 	server_name localhost;
+	location ~* \.(png|css|js|woff|woff2|ttf)$ {
+    	     root /home/ubuntu/AirBnB_clone_v4/web_dynamic/;
+	}
 
 	location / {
 		# First attempt to serve request as file, then
